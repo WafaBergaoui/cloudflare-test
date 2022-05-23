@@ -10,7 +10,7 @@ export async function onRequestGet(context) {
     const { id } = params
 
     if (id) {
-        const res = await fetch(`https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/stream/${id}`, {
+        const res = await fetch(`https://dash.cloudflare.com/${env.CF_ACCOUNT_ID}/stream/videos/${id}`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${env.CF_API_TOKEN_STREAM}`
