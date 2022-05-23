@@ -10,9 +10,6 @@ export async function onRequestGet(context) {
       `https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/stream/${id}`,
       {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${env.CF_API_TOKEN_STREAM}`,
-        },
       }
     );
 
@@ -40,12 +37,7 @@ export async function onRequestGet(context) {
       await fetch(
         `https://api.cloudflare.com/client/v4/accounts/${
           env.CF_ACCOUNT_ID
-        }/stream?search=${url.searchParams.get("search") || ""}`,
-        {
-          headers: {
-            Authorization: `Bearer ${env.CF_API_TOKEN_STREAM}`,
-          },
-        }
+        }/stream?search=${url.searchParams.get("search") || ""}`
       )
     ).json();
 
