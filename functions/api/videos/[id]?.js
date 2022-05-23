@@ -1,4 +1,4 @@
-import { getSignedStreamId } from "../../utils/cfStream"
+import { getSignedStreamId } from "../../../utils/cfStream"
 
 export async function onRequestGet(context) {
     const {
