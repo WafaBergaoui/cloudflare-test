@@ -1,20 +1,19 @@
 import { PlayerView } from "../components/views";
-import { useEffect } from "react";
 
 export default function Home({ data }) {
-  //useEffect = () => console.log(data);
+  console.log(data);
   return (
     <div>
-      <PlayerView />
+      <PlayerView videoId={data.uid}/>
     </div>
   );
 }
 
-// export async function getServerSideProps() {
-//   const res = await fetch("/api/videos/", {
-//     headers: { accept: "application/json" },
-//   });
-//   const data = await res.json();
+export async function getServerSideProps() {
+  const res = await fetch(`https://cloudflare-test-ajl.pages.dev/api/videos/`, {
+    headers: { accept: "application/json" },
+  });
+  const data = await res.json();
 
-//   return { props: { data } };
-// }
+  return { props: { data } };
+}
