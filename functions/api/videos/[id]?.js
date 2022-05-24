@@ -23,7 +23,6 @@ export async function onRequestGet(context) {
     //  }
 
     const signedId = await getSignedStreamId(id, env.CF_STREAM_SIGNING_KEY);
-    if (video.meta.visibility !== "public") {
     return new Response(
       JSON.stringify({
         signedId: `${signedId}`,
@@ -33,7 +32,7 @@ export async function onRequestGet(context) {
           "content-type": "application/json",
         },
       }
-    );}
+    );
   } 
   else {
     const url = new URL(request.url);
