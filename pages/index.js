@@ -1,10 +1,10 @@
 import { PlayerView } from "../components/views";
 
-export default function Home({ data }) {
-  console.log(data);
+export default function Home() {
+  //console.log(data);
   return (
     <div>
-      <PlayerView videoId={data.uid}/>
+      <PlayerView />
     </div>
   );
 }
