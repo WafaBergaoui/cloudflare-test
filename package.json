@@ -5,11 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "wrangle": "next build && next export && npx wrangler pages dev ./out"
   },
   "dependencies": {
     "@cloudflare/stream-react": "^1.8.0",
+    "@cloudflare/wrangler": "^1.19.12",
     "jwt-decode": "^3.1.2",
     "next": "12.1.6",
     "react": "18.1.0",
