@@ -49,7 +49,7 @@ export async function onRequestGet(context) {
     ).json();
 
     const filteredVideos = res.result.filter(
-      (x) => x.meta.visibility == "public"
+      (x) => x.meta.visibility !== "public"
     );
     const videos = await Promise.all(
       filteredVideos.map(async (x) => {
