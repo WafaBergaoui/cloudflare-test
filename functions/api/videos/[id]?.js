@@ -4,7 +4,6 @@ export async function onRequestGet(context) {
   const { request, env, params } = context;
 
   const { id } = params;
-  console.log(env);
   if (id) {
     const res = await fetch(
       `https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/stream/${id}`,
