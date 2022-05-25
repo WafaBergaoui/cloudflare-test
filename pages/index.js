@@ -1,11 +1,14 @@
 import { PlayerView } from "../components/views";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch(`https://cloudflare-test-ajl.pages.dev/api/videos/`, {
     headers: { accept: "application/json" },
   });
   const data = await res.json();
-  return { props: { data } };
+
+  return {
+    props: {data}
+  }
 }
 
 function Home({data}) {
