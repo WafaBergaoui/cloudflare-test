@@ -4,7 +4,7 @@ const expiresTimeInS = 3600;
 export const getSignedStreamId = async (id, jwkKey) => {
   const encoder = new TextEncoder();
   const expiresIn = Math.floor(Date.now() / 1000) + expiresTimeInS;
-  const jwk = JSON.parse(atob(jwkKey));
+  const jwk = JSON.parse(jwkKey);
 
   const headers = {
     alg: "RS256",

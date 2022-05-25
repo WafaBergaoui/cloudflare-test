@@ -17,16 +17,16 @@ export async function onRequestGet(context) {
 
     const video = (await res.json()).result;
 
-    //if (video.meta.visibility !== "public") {
-    //   return new Response(null, { status: 401 });
-    //}
+    if (video.meta.visibility !== "public") {
+      return new Response(null, { status: 401 });
+    }
 
-    // const signedId = await getSignedStreamId(id, env.CF_STREAM_SIGNING_KEY);
+     const signedId = await getSignedStreamId(id, env.CF_STREAM_SIGNING_KEY);
     return new Response(
       video,
-      // JSON.stringify({
-      //   signedId: `${signedId}`,
-      // }),
+       JSON.stringify({
+        signedId: `${signedId}`,
+       }),
       {
         headers: {
           "content-type": "application/json",
