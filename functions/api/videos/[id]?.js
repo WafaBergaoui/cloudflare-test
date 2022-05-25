@@ -15,26 +15,12 @@ export async function onRequestGet(context) {
       }
     );
 
-    const video = (await res.json()).result;
-
-    // if (video.meta.visibility !== "public") {
-    //   return new Response(null, { status: 401 });
-    // }
-
-     const signedId = await getSignedStreamId(id, env.CF_STREAM_SIGNING_KEY);
-    return new Response(
-      id,
-      // JSON.stringify({
-      //   signedId: `${signedId}`,
-      // }),
-      {
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
-  } 
-  else {
+    return new Response(id, {
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+  } else {
     const url = new URL(request.url);
     const res = await (
       await fetch(
@@ -49,18 +35,14 @@ export async function onRequestGet(context) {
       )
     ).json();
 
-    const filteredVideos = res.result
-    
+    const filteredVideos = res.result;
+
     const videos = await Promise.all(
       filteredVideos.map(async (x) => {
-        const signedId = await getSignedStreamId(
-          x.uid,
-          env.CF_STREAM_SIGNING_KEY
-        );
         return {
           uid: x.uid,
           status: x.status,
-          thumbnail: `https://videodelivery.net/548a1762f17f8ea1cda8344e0e48de7a/thumbnails/thumbnail.jpg`,
+          thumbnail: `https://videodelivery.net/${id}/thumbnails/thumbnail.jpg`,
           meta: {
             name: x.meta.name,
           },
