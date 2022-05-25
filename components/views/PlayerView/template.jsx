@@ -8,12 +8,12 @@ const PlayerView = ({ videos }) => {
   const videoID = '548a1762f17f8ea1cda8344e0e48de7a';
 
 
- return (
-      <div>
-        <Stream controls src={videos[1].uid} />
-        <Stream controls src={videos[2].uid} />
-        <Stream controls src={videos[3].uid} />
-      </div>
- )
+  return (
+    <div>
+      <Stream controls src={videos[1].uid} />
+      <Stream controls src={videos[2].uid} />
+      <Stream controls src={videos[3].uid} />
+    </div>
+  )
 }
 export default PlayerView
