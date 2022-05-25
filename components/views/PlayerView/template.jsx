@@ -11,14 +11,14 @@ const PlayerView = () => {
   //   videos.map((video) => {return video.uid});
   // }
 
-  videos.map((video) => {
-    console.log(video.uid);
+  // videos.map((video) => {
+  //   console.log(video.uid);
     return (
       <div className={S.Player}>
         <Stream controls src={videoID}/>
       </div>
     )
-  })
+  //})
   
 }
 export default PlayerView
