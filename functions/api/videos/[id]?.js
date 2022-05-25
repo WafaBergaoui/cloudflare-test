@@ -53,14 +53,14 @@ export async function onRequestGet(context) {
     
     const videos = await Promise.all(
       filteredVideos.map(async (x) => {
-        // const signedId = await getSignedStreamId(
-        //   x.uid,
-        //   env.CF_STREAM_SIGNING_KEY
-        // );
+        const signedId = await getSignedStreamId(
+          x.uid,
+          env.CF_STREAM_SIGNING_KEY
+        );
         return {
           uid: x.uid,
           status: x.status,
-          // thumbnail: `https://videodelivery.net/${env.CF_ACCOUNT_ID}/thumbnails/thumbnail.jpg`,
+          thumbnail: `https://videodelivery.net/${env.CF_ACCOUNT_ID}/thumbnails/thumbnail.jpg`,
           meta: {
             name: x.meta.name,
           },
