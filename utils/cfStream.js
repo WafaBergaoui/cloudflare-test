@@ -40,7 +40,7 @@ export const getSignedStreamId = async (id, jwkKey) => {
 };
 
 function arrayBufferToBase64Url(buffer) {
-  return btoa(String.fromCharCode(...new Uint8Array(buffer)))
+  return scope.btoa(String.fromCharCode(...new Uint8Array(buffer)))
     .replace(/=/g, "")
     .replace(/\+/g, "-")
     .replace(/\//g, "_");
