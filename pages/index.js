@@ -1,6 +1,6 @@
 import { PlayerView } from "../components/views";
 
-export default function Home({data}) {
+export default function Home() {
   
   //console.log("Videos List: ", data);
 
