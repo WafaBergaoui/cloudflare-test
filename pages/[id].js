@@ -1,4 +1,4 @@
-import { Video } from "../components/video";
+import { Video } from "../components/views";
 
 export async function getStaticProps({query}) {
     const {id} = query;
