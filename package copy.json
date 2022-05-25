@@ -1,0 +1,30 @@
+{
+  "name": "cloudflare-test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "wrangle": "next build && next export && npx wrangler pages dev ./out"
+  },
+  "dependencies": {
+    "@cloudflare/stream-react": "^1.8.0",
+    "@cloudflare/wrangler": "^1.19.12",
+    "axios": "^0.27.2",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.1.1",
+    "jwt-decode": "^3.1.2",
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-bootstrap": "^2.4.0",
+    "react-dom": "18.1.0",
+    "rfc4648": "^1.5.1",
+    "sass": "^1.52.1"
+  },
+  "devDependencies": {
+    "eslint": "8.16.0",
+    "eslint-config-next": "12.1.6"
+  }
+}
