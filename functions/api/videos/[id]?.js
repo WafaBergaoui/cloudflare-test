@@ -24,9 +24,9 @@ export async function onRequestGet(context) {
      const signedId = await getSignedStreamId(id, env.CF_STREAM_SIGNING_KEY);
     return new Response(
       video,
-       JSON.stringify({
+      JSON.stringify({
         signedId: `${signedId}`,
-       }),
+      }),
       {
         headers: {
           "content-type": "application/json",
