@@ -1,4 +1,4 @@
-//import crypto from "crypto"
+import crypto from "crypto"
 // expiresTimeInS is the expired time in second of the video
 const expiresTimeInS = 3600;
 
