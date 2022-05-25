@@ -10,6 +10,7 @@ const PlayerView = ({ videos }) => {
 
   return (
     <div>
+      <Stream controls src={videos[0].uid} />
       <Stream controls src={videos[1].uid} />
       <Stream controls src={videos[2].uid} />
       <Stream controls src={videos[3].uid} />

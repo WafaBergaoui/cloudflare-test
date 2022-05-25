@@ -9,7 +9,6 @@ export async function getServerSideProps() {
 }
 
 function Home({data}) {
-  
   console.log("data",data);
   return (
     <div>
@@ -18,4 +17,4 @@ function Home({data}) {
   );
 }
 
-export default Home
+export default Home;
