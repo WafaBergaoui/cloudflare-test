@@ -14,19 +14,19 @@ export default async (req, res) => {
     );
     console.log(result);
     
-    const signedId = await getSignedStreamId(id, env.CF_STREAM_SIGNING_KEY);
-    console.log("signedID", signedId)
-    return new Response(
-      JSON.stringify({
-        signedId: `${signedId}`,
-      }),
-      {
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
-    //return res.json({ result: result.data });
+    //const signedId = await getSignedStreamId(id, env.CF_STREAM_SIGNING_KEY);
+    //console.log("signedID", signedId)
+    // return new Response(
+    //   JSON.stringify({
+    //     signedId: `${signedId}`,
+    //   }),
+    //   {
+    //     headers: {
+    //       "content-type": "application/json",
+    //     },
+    //   }
+    // );
+    return res.json({ resultrrr: result.data.result.uid });
   }
 };
 

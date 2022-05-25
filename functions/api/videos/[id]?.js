@@ -23,7 +23,7 @@ export async function onRequestGet(context) {
 
      const signedId = await getSignedStreamId(id, env.CF_STREAM_SIGNING_KEY);
     return new Response(
-      video,
+      video.data.result.id,
       // JSON.stringify({
       //   signedId: `${signedId}`,
       // }),
