@@ -15,7 +15,7 @@ export async function onRequestGet(context) {
       }
     );
 
-    //const video = (await res.json()).result;
+    const video = (await res.json()).result;
 
     //if (video.meta.visibility !== "public") {
     //   return new Response(null, { status: 401 });
