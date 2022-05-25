@@ -59,7 +59,7 @@ export async function onRequestGet(context) {
         return {
           uid: x.uid,
           status: x.status,
-          thumbnail: `https://videodelivery.net/${signedId}/thumbnails/thumbnail.jpg`,
+          thumbnail: `https://videodelivery.net/548a1762f17f8ea1cda8344e0e48de7a/thumbnails/thumbnail.jpg`,
           meta: {
             name: x.meta.name,
           },
