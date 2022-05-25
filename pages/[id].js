@@ -1,23 +1,41 @@
 import { Video } from "../components/views";
 
-export async function getStaticProps({query}) {
-    const {id} = query;
-    console.log('ghjk', id);
-  const res = await fetch(`https://cloudflare-test-ajl.pages.dev/api/videos/${id}`, {
-    headers: { accept: "application/json" },
-  });
-  const data = await res.json();
+// export async function getStaticPaths() {
+//   const res = await fetch(
+//     `https://cloudflare-test-ajl.pages.dev/api/videos?q=batman`,
+//     {
+//       headers: { accept: "application/json" },
+//     }
+//   );
+//   const data = await res.json();
 
-  return {
-    props: {data}
-  }
-}
+//   const paths = data.map((video) => ({
+//     id: video,
+//   }));
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
 
-function Home({data}) {
-  console.log("data",data);
+// export async function getStaticProps({ params }) {
+//   const request = await fetch(
+//     `https://cloudflare-test-ajl.pages.dev/api/videos/${id}`
+//   );
+//   const videoID = await request.json();
+
+//   return {
+//     props: {
+//       videoID,
+//     },
+//   };
+// }
+
+function Home({ videoID }) {
+  //console.log("data", videoID);
   return (
     <div>
-      <Video videoID={data}/>
+      <Video />
     </div>
   );
 }

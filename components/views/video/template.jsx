@@ -1,14 +1,15 @@
 import React from 'react'
 import { Stream } from "@cloudflare/stream-react";
 import { Container, Row, Card } from 'react-bootstrap'
+import S from './style.module.scss'
 
-const Video = ({ videoID }) => {
+const Video = () => {
   return (
     <Container>
       <Row>
-        <Card style={{ width: '18rem' }}>
+        <Card className={S.videoStyle}>
           <Card.Body>
-            <Stream controls src={videoID} />
+            <Stream controls src="548a1762f17f8ea1cda8344e0e48de7a" />
           </Card.Body>
         </Card>
       </Row>
