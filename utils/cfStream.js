@@ -1,10 +1,12 @@
+import crypto from "crypto"
 // expiresTimeInS is the expired time in second of the video
 const expiresTimeInS = 3600;
+
 
 export const getSignedStreamId = async (id, jwkKey) => {
   const encoder = new TextEncoder();
   const expiresIn = Math.floor(Date.now() / 1000) + expiresTimeInS
-  const jwk = JSON.parse(window.atob(jwkKey));
+  const jwk = JSON.parse(atob(jwkKey));
 
   const headers = {
     alg: "RS256",
@@ -31,7 +33,6 @@ export const getSignedStreamId = async (id, jwkKey) => {
   };
 
   const token = `${objectToBase64url(headers)}.${objectToBase64url(data)}`;
-
   const key = await crypto.subtle.importKey(
     "jwk", jwk,
     {
@@ -46,11 +47,13 @@ export const getSignedStreamId = async (id, jwkKey) => {
     encoder.encode(token)
   );
 
+
   return `${token}.${arrayBufferToBase64Url(signature)}`;
+
 };
 
 function arrayBufferToBase64Url(buffer) {
-  return scope.btoa(String.fromCharCode(...new Uint8Array(buffer)))
+  return btoa(String.fromCharCode(...new Uint8Array(buffer)))
     .replace(/=/g, "")
     .replace(/\+/g, "-")
     .replace(/\//g, "_");
