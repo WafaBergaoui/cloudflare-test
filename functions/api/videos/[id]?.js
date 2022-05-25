@@ -15,11 +15,11 @@ export async function onRequestGet(context) {
       }
     );
 
-    const video = (await res.json()).result;
+    //const video = (await res.json()).result;
 
-    //  if (video.meta.visibility !== "public") {
+    //if (video.meta.visibility !== "public") {
     //   return new Response(null, { status: 401 });
-    //  }
+    //}
 
     const signedId = await getSignedStreamId(id, env.CF_STREAM_SIGNING_KEY);
     return new Response(

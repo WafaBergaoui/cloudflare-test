@@ -1,7 +1,9 @@
 import { PlayerView } from "../components/views";
 
 export default function Home({data}) {
-  console.log("Videos List: ", data);
+  
+  //console.log("Videos List: ", data);
+
   return (
     <div>
       <PlayerView />
@@ -9,10 +11,10 @@ export default function Home({data}) {
   );
 }
 
-export async function getServerSideProps() {
-  const res = await fetch(`https://cloudflare-test-ajl.pages.dev/api/videos/`, {
-    headers: { accept: "application/json" },
-  });
-  const data = await res.json();
-  return { props: { data } };
-}
+// export async function getServerSideProps() {
+//   const res = await fetch(`https://cloudflare-test-ajl.pages.dev/api/videos/`, {
+//     headers: { accept: "application/json" },
+//   });
+//   const data = await res.json();
+//   return { props: { data } };
+// }
