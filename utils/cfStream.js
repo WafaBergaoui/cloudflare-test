@@ -8,12 +8,12 @@ export const getSignedStreamId = async (id, jwkKey) => {
 
   const headers = {
     alg: "RS256",
-    kid: "3fd02889f63237bb736e21e33eb07a7a",
+    kid: 'e2ba681940a9a49320302cacadd7bc67',
   };
 
   const data = {
     "sub": id,
-    "kid": jwk.kid,
+    "kid": "e2ba681940a9a49320302cacadd7bc67",
     "exp": expiresIn,
     "accessRules": [
       {
