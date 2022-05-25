@@ -1,12 +1,11 @@
 import jwt_decode from "jwt-decode";
 import { base64url } from "rfc4648";
-import { parse } from "worktop/cookie";
 
 // Verify Cloudflare Access JWT
 export const verifyCloudflareAccessJwt = async (request, env) => {
 
   try {
-    const cookie = parse(request.headers.get("Cookie") || "");
+    const cookie = JSON.parse(request.headers.get("Cookie") || "");
     const jwtToken = request.headers.get("Cf-Access-Jwt-Assertion") || cookie["CF_Authorization"]
 
     // Make sure JWT or client id/secret was passed
@@ -74,7 +73,7 @@ export const verifyJwtSignature = (jwsObject, jwk) => {
       crypto.subtle.verify(
         { name: "RSASSA-PKCS1-v1_5" },
         key,
-        base64url.parse(jwsSignature, { loose: true }),
+        base64url.JSON.parse(jwsSignature, { loose: true }),
         new TextEncoder().encode(jwsSigningInput)
       )
     );
