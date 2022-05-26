@@ -7,7 +7,6 @@ import S from './style.module.scss'
 
 const PlayerView = ({ videos }) => {
   const videoRef = useRef(null);
-  console.log(videos);
 
   const onClick1 = () => {
     Router.push('/548a1762f17f8ea1cda8344e0e48de7a')

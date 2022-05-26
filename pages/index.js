@@ -12,7 +12,6 @@ export async function getStaticProps() {
 }
 
 function Home({data}) {
-  console.log("data",data);
   return (
     <div>
       <PlayerView videos={data}/>
