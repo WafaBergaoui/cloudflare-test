@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
+import { Modal, ModalBody } from "reactstrap";
 import S from "./style.module.scss";
 
 const UploadVideo = ({ modalOpen, setModalOpen }) => {
