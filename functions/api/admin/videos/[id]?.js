@@ -15,11 +15,11 @@ export async function onRequestGet(context) {
     })).json()
 
     const videos = await Promise.all(res.result.map(async x => {
-        const signedId = await getSignedStreamId(x.uid, env.CF_STREAM_SIGNING_KEY)
+        //const signedId = await getSignedStreamId(x.uid, env.CF_STREAM_SIGNING_KEY)
         return {
             ...x,
             signedId,
-            thumbnail: `https://videodelivery.net/${signedId}/thumbnails/thumbnail.jpg`,
+            //thumbnail: `https://videodelivery.net/${signedId}/thumbnails/thumbnail.jpg`,
         }
     }))
     return new Response(JSON.stringify(videos), {headers: {"content-type": "application/json"}})

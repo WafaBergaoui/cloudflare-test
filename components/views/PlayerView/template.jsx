@@ -1,11 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { HTMLStreamElement, Stream } from "@cloudflare/stream-react";
-import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { UploadVideo } from '../../modals';
 import Router from 'next/router'
 import S from './style.module.scss'
 
 
 const PlayerView = ({ videos }) => {
+  const [modalOpen, setModalOpen] = useState(false);
   const videoRef = useRef(null);
 
   const onClick1 = () => {
@@ -24,6 +26,7 @@ const PlayerView = ({ videos }) => {
     Router.push('/5f24f38af8340c2b76514dc1bd66b91b')
   }
 
+
   // videos?.map((video, key) => {
   //   return (
   //     <Stream
@@ -34,54 +37,59 @@ const PlayerView = ({ videos }) => {
   // })
 
   return (
-    <Container>
-      <Row >
-        <Col>
-        <Card className={S.cardsStyle} >
+    <div>
+      {/* <Button onClick={() => setModalOpen(!modalOpen)} className={S.addVideo} variant="primary">Ajouter un video</Button>
+      <UploadVideo modalOpen={modalOpen} setModalOpen={setModalOpen}/> */}
+      <Container>
+        <Row >
+          <Col>
+            <Card className={S.cardsStyle} >
               <Stream controls src={videos[0].uid} />
-          <Card.Body>
-            <Card.Title>{videos[0].meta.name}</Card.Title>
-            <Card.Text>{videos[0].created}</Card.Text>
-            <Button onClick={onClick1} style ={{marginBottom: "10px"}} variant="primary">Go to video</Button>
-          </Card.Body>
-          </Card>
-        </Col>
+              <Card.Body>
+                <Card.Title>{videos[0].meta.name}</Card.Title>
+                <Card.Text>{videos[0].created}</Card.Text>
+                <Button onClick={onClick1} style={{ marginBottom: "10px" }} variant="primary">Go to video</Button>
+              </Card.Body>
+            </Card>
+          </Col>
 
-        <Col>
-          <Card className={S.cardsStyle} >
+          <Col>
+            <Card className={S.cardsStyle} >
               <Stream controls src={videos[1].uid} />
-            <Card.Body>
-              <Card.Title>{videos[1].meta.name}</Card.Title>
-              <Card.Text>{videos[1].created}</Card.Text>
-              <Button onClick={onClick2} style ={{marginBottom: "10px"}} variant="primary">Go to video</Button>
-            </Card.Body>          
-          </Card>
-        </Col>
+              <Card.Body>
+                <Card.Title>{videos[1].meta.name}</Card.Title>
+                <Card.Text>{videos[1].created}</Card.Text>
+                <Button onClick={onClick2} style={{ marginBottom: "10px" }} variant="primary">Go to video</Button>
+              </Card.Body>
+            </Card>
+          </Col>
 
-        <Col>
-          <Card className={S.cardsStyle} >
-                <Stream controls src={videos[2].uid} />
-            <Card.Body>
-              <Card.Title>{videos[2].meta.name}</Card.Title>
-              <Card.Text>{videos[2].created}</Card.Text>
-              <Button onClick={onClick3} style ={{marginBottom: "10px"}} variant="primary">Go to video</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col>
-          <Card className={S.cardsStyle} >
+          <Col>
+            <Card className={S.cardsStyle} >
+              <Stream controls src={videos[2].uid} />
+              <Card.Body>
+                <Card.Title>{videos[2].meta.name}</Card.Title>
+                <Card.Text>{videos[2].created}</Card.Text>
+                <Button onClick={onClick3} style={{ marginBottom: "10px" }} variant="primary">Go to video</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card className={S.cardsStyle} >
               <div>
                 <Stream controls src={videos[3].uid} />
               </div>
-          <Card.Body>
-              <Card.Title>{videos[3].meta.name}</Card.Title>
-              <Card.Title>{videos[3].created}</Card.Title>
-              <Button onClick={onClick4} style ={{marginBottom: "10px"}} variant="primary">Go to video</Button>
-            </Card.Body>
+              <Card.Body>
+                <Card.Title>{videos[3].meta.name}</Card.Title>
+                <Card.Title>{videos[3].created}</Card.Title>
+                <Button onClick={onClick4} style={{ marginBottom: "10px" }} variant="primary">Go to video</Button>
+              </Card.Body>
             </Card>
-        </Col>
-      </Row>
-    </Container>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+
   );
 }
 export default PlayerView

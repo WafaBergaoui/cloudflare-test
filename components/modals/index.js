@@ -1,0 +1,1 @@
+export { Component as UploadVideo } from './UploadVideo';
