@@ -7,8 +7,10 @@ import S from './style.module.scss'
 
 
 const PlayerView = ({ videos }) => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const videoRef = useRef(null);
+  //const [modalOpen, setModalOpen] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => setShow(true);
 
   const onClick1 = () => {
     Router.push('/548a1762f17f8ea1cda8344e0e48de7a')
@@ -38,8 +40,8 @@ const PlayerView = ({ videos }) => {
 
   return (
     <div>
-      {/* <Button onClick={() => setModalOpen(!modalOpen)} className={S.addVideo} variant="primary">Ajouter un video</Button>
-      <UploadVideo modalOpen={modalOpen} setModalOpen={setModalOpen}/> */}
+      {/* <Button onClick={handleShow} className={S.addVideo} variant="primary">Ajouter un video</Button>
+      <UploadVideo show={show} setShow={setShow}/> */}
       <Container>
         <Row >
           <Col>

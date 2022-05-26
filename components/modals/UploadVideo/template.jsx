@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Modal, ModalBody } from "reactstrap";
+import { Modal, Button } from "react-bootstrap";
 import S from "./style.module.scss";
 
-const UploadVideo = ({ modalOpen, setModalOpen }) => {
+const UploadVideo = ({ show, setShow }) => {
+    const handleClose = () => setShow(false);
 
     const onChange = async (event) => {
         event.preventDefault();
@@ -17,7 +18,7 @@ const UploadVideo = ({ modalOpen, setModalOpen }) => {
                 mode: 'no-cors',
                 method: "POST",
                 body: formData,
-                headers: ({ 
+                headers: ({
                     'Accept': "application/json",
                     "Content-Type": "application/json"
                 }),
@@ -33,39 +34,16 @@ const UploadVideo = ({ modalOpen, setModalOpen }) => {
 
     return (
         <>
-            <Modal className={S.modalStyle} toggle={() => setModalOpen(!modalOpen)} isOpen={modalOpen}>
-                <div >
-                    <h5 className={S.title} id="exampleModalLabel">
-                        Importer des vidéos
-                    </h5>
-                    <button
-                        aria-label="Close"
-                        className={S.closeBtn}
-                        type="button"
-                        onClick={() => setModalOpen(!modalOpen)}
-                    >
-                        <span aria-hidden={true}>×</span>
-                    </button>
-                </div>
-                <ModalBody>
+            <Modal className={S.modalStyle} show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title className={S.title} >Importer des vidéos</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
                     <input className={S.uploadVideoBTN} type="file" onChange={onChange} />
-                </ModalBody>
+                </Modal.Body>
             </Modal>
         </>
     );
 };
 
-// UploadVideo.getInitialProps = async () => {
-//     const res = await fetch('https://cloudflare-test-ajl.pages.dev/api/admin/videos', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/x-www-form-urlencoded',
-//         },
-//         body: formData,
-//     });
-//     const data = await res.json();
-//     console.log(data);
-// }
-
 export default UploadVideo;
-
